@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import RouterHelper from "../../helpers/router.helper.js";
 import {
   addProductToCart,
@@ -23,10 +22,4 @@ class CartsRouter extends RouterHelper {
 }
 
 const cartsRouter = new CartsRouter().getRouter();
-=======
-import { Router } from "express";
-
-const cartsRouter = Router();
-
->>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
 export default cartsRouter;

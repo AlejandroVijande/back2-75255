@@ -25,7 +25,6 @@ const isOnline = async () => {
       `;
       document.querySelector("#signout").addEventListener("click", async () => {
         try {
-<<<<<<< HEAD
     const opts = {
       method: "POST",
       headers: {
@@ -42,26 +41,9 @@ const isOnline = async () => {
 });
     }
     
-=======
-          const signoutOpts = { method: "POST", headers: { "Content-Type": "application/json" } };
-          const signoutUrl = "/api/auth/signout";
-          await fetch(signoutUrl, signoutOpts);
-          localStorage.removeItem("token");
-          location.replace("/");
-        } catch (error) {
-          console.log(error);
-        }
-      });
-    }
-
->>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
   } catch (error) {
     console.log(error);
   }
 };
 
-<<<<<<< HEAD
 isOnline();
-=======
-isOnline();
->>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34

@@ -1,10 +1,6 @@
 node_modules
-<<<<<<< HEAD
 # .env
 .env.dev
 .env.test
 .env.prod
 .env.qa
-=======
-.env
->>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
