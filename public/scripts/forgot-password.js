@@ -7,10 +7,10 @@ document.getElementById("forgot-form").onsubmit = async function(e) {
     body: JSON.stringify({ email })
   });
   if (res.ok) {
-    alert("¡Si tu email está registrado, te enviamos un enlace de recuperación!");
+    alert("If your email is registered, we’ve sent you a recovery link!");
     window.location = "/login";
   } else {
     const err = await res.json();
-    alert(err.error || "No se pudo enviar el correo de recuperación.");
+    alert(err.error || "Could not send recovery email.");
   }
 };

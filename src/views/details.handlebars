@@ -19,10 +19,10 @@
       credentials: "include",
     });
     if (res.ok) {
-      alert("¡Producto agregado al carrito!");
+      alert("Product added to cart!");
     } else {
       const error = await res.json();
-      alert(error.error || "No se pudo agregar al carrito");
+      alert(error.error || "Could not add to cart");
     }
   };
 </script>

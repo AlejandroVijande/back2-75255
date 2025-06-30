@@ -2,7 +2,7 @@ let currentCartId = null;
 
 async function loadCart() {
   const res = await fetch("/api/carts/user", { credentials: "include" });
-  if (!res.ok) return alert("No se pudo cargar el carrito");
+  if (!res.ok) return alert("Could not load cart");
   const cart = await res.json();
   currentCartId = cart._id;
   const container = document.getElementById("cart-items");
@@ -26,7 +26,7 @@ async function removeFromCart(pid) {
     method: "DELETE",
     credentials: "include",
   });
-  if (!res.ok) return alert("Error al eliminar producto");
+  if (!res.ok) return alert("Error removing product");
   loadCart();
 }
 
@@ -36,7 +36,7 @@ async function clearCart() {
     method: "DELETE",
     credentials: "include",
   });
-  if (!res.ok) return alert("Error al vaciar carrito");
+  if (!res.ok) return alert("Error emptying cart");
   loadCart();
 }
 
@@ -47,10 +47,10 @@ async function checkoutCart() {
   });
   if (!res.ok) {
     const err = await res.json();
-    return alert(err.error || "Error al finalizar compra");
+    return alert(err.error || " Error completing purchase");
   }
   const data = await res.json();
-  alert("¡Compra realizada! Ticket: " + data.ticket.code);
+  alert("Purchase completed! Ticket: " + data.ticket.code);
   loadCart();
 }
 

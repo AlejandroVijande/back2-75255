@@ -3,6 +3,6 @@ async function addToCart(pid) {
     method: "POST",
     credentials: "include"
   });
-  if (!res.ok) return alert("No se pudo agregar al carrito");
-  alert("Producto agregado al carrito");
+  if (!res.ok) return alert("Could not add to cart");
+  alert("Product added to cart");
 }

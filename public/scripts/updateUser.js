@@ -25,7 +25,7 @@ document.querySelector("#update").addEventListener("click", async () => {
     if (response.error) {
       alert(response.error);
     } else {
-      alert("¡Usuario actualizado!");
+      alert("User updated!");
       location.replace("/profile");
     }
   } catch (error) {
