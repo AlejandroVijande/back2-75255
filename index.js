@@ -46,7 +46,7 @@ server.use(
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
-    cookies: { maxAge: 60 * 1000 },
+    cookie: { maxAge: 60 * 1000, secure: process.env.NODE_ENV === "production", sameSite: process.env.NODE_ENV === "production" ? "none" : "lax"},
     store: new MongoStore({
       mongoUrl: process.env.LINK_DB,
       //collectionName: "sessions",
