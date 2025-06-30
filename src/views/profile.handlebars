@@ -1,0 +1,18 @@
+<h1 class="bg-primary-subtle p-2 text-center text-primary w-100">PROFILE</h1>
+<section class="d-flex flex-wrap justify-content-evenly">
+  <div class="card m-1 border-primary" style="width: 18rem;">
+    <img src="{{#if user.avatar}}{{user.avatar}}{{else}}https://cdn-icons-png.flaticon.com/512/266/266033.png{{/if}}" 
+         class="card-img-top object-fit-cover" alt="{{user._id}}" style="height: 12rem;">
+    <div class="card-body d-flex flex-column justify-content-center">
+      {{#if user.name}}
+        <p class="card-title text-center">{{user.name}}</p>
+      {{/if}}
+      {{#if user.age}}
+        <p class="card-text text-center">{{user.age}}</p>
+      {{/if}}
+      <p class="card-text text-center">{{user.city}}</p>
+      <h5 class="card-text text-center fw-semibold">{{user.email}}</h5>
+      <a href="/update-user" class="btn btn-primary">Update</a>
+    </div>
+  </div>
+</section>

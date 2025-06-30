@@ -1,0 +1,28 @@
+<h1 class="bg-primary-subtle p-2 text-center text-primary w-100">DETAILS</h1>
+<section class="d-flex flex-wrap justify-content-evenly">
+  <div class="card m-1 border-primary" style="width: 18rem;">
+    <img src="{{product.image}}" class="card-img-top object-fit-cover" alt="{{product._id}}" style="height: 12rem;">
+    <div class="card-body d-flex flex-column justify-content-center">
+      <h5 class="card-title text-primary">{{product.title}}</h5>
+      <p class="card-text text-secondary">USD {{product.price}}</p>
+      <button id="add-to-cart-btn" class="btn btn-primary" data-product-id="{{product._id}}">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('add-to-cart-btn').onclick = async function() {
+    const productId = this.dataset.productId;
+    const res = await fetch(`/api/carts/user/products/${productId}`, {
+      method: "POST",
+      credentials: "include",
+    });
+    if (res.ok) {
+      alert("¡Producto agregado al carrito!");
+    } else {
+      const error = await res.json();
+      alert(error.error || "No se pudo agregar al carrito");
+    }
+  };
+</script>
