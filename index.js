@@ -15,7 +15,7 @@ import cors from "cors"
 
 /* server settings */
 const server = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT;
 const ready = async () => {
   console.log("server ready on port " + port + " and mode " + argvsHelper.mode);
   if (process.env.PERSISTENCE === "mongo") {
