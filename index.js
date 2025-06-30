@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import "./src/helpers/env.helper.js";
+=======
+import "dotenv/config.js";
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
 import express from "express";
 import { engine } from "express-handlebars";
 import morgan from "morgan";
@@ -7,20 +11,32 @@ import indexRouter from "./src/routers/index.router.js";
 import pathHandler from "./src/middlewares/pathHandler.mid.js";
 import errorHandler from "./src/middlewares/errorHandler.mid.js";
 import dbConnect from "./src/helpers/dbConnect.helper.js";
+<<<<<<< HEAD
 import argvsHelper from "./src/helpers/argvs.helper.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import cors from "cors"
+=======
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import passport from "./src/middlewares/passport.mid.js";
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
 
 /* server settings */
 const server = express();
 const port = process.env.PORT || 8080;
 const ready = async () => {
+<<<<<<< HEAD
   console.log("server ready on port " + port + " and mode " + argvsHelper.mode);
   if (process.env.PERSISTENCE === "mongo") {
     await dbConnect(process.env.LINK_DB);
   }
+=======
+  console.log("server ready on port " + port);
+  await dbConnect(process.env.LINK_DB);
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
 };
 server.listen(port, ready);
 
@@ -35,10 +51,14 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static("public"));
 server.use(morgan("dev"));
+<<<<<<< HEAD
 server.use(cors({
   origin: true,
   credentials: true
 }))
+=======
+server.use(passport.initialize()); 
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
 
 /* sessions settings */
 server.use(
@@ -49,7 +69,10 @@ server.use(
     cookies: { maxAge: 60 * 1000 },
     store: new MongoStore({
       mongoUrl: process.env.LINK_DB,
+<<<<<<< HEAD
       //collectionName: "sessions",
+=======
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
     }),
   })
 );
@@ -58,5 +81,8 @@ server.use(
 server.use("/", indexRouter);
 server.use(errorHandler);
 server.use(pathHandler);
+<<<<<<< HEAD
 
 //console.log(process);
+=======
+>>>>>>> 31a5cfb70adc53089247ebaa7d4b467850382e34
